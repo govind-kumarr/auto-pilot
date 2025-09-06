@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { scrapeLinkedInPost } from "./linkedin_post_scrapper";
 import { analyzePost } from "./post_analyzer";
-// import { testSummary } from "@/app/prompts/auto_pilot_prompts";
 import PostModel from "../../../../models/post_model";
 import RoleModel from "../../../../models/role_model";
 import { getUserFromRequest, verifyAndDecodeToken } from "../../../../lib/auth";
