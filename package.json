@@ -22,7 +22,7 @@
     "mongoose": "^8.18.0",
     "next": "15.5.2",
     "pdf-parse": "^1.1.1",
-    "playwright": "^1.55.0",
+    "playwright-core": "^1.55.0",
     "qs": "^6.14.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"

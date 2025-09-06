@@ -1,4 +1,4 @@
-import { chromium } from "playwright";
+import { chromium } from "playwright-core";
 
 export async function scrapeLinkedInPost(postUrl: string) {
   const browser = await chromium.launch({
