@@ -7,6 +7,7 @@ import { summarizerPrompt } from "@/app/prompts/auto_pilot_prompts";
 import { getUserFromRequest } from "../../../../lib/auth";
 import UserModel from "../../../../models/user_model";
 import s3 from "@/utils/aws_functions";
+import dbConnect from "../../../../lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,6 +15,7 @@ export async function POST(req: NextRequest) {
     if (!userId) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
+    await dbConnect();
     const formData = await req.formData();
     const file = formData.get("resume") as File | null;
 

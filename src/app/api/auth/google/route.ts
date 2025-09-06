@@ -35,7 +35,6 @@ export async function GET(request: Request) {
 
     await dbConnect();
     const { email, name } = googleUser;
-    console.log(`Got user: ${email} ${name}`);
 
     let userRecord = await UserModel.findOne({ email });
     if (!userRecord) {

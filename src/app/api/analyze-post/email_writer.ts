@@ -25,7 +25,6 @@ async function prepareEmail(
       role,
       summary,
     });
-    console.log({ finalPrompt });
     const response = await emailWriterModel.invoke(finalPrompt);
     if (response) {
       const { body, subject } = response;
