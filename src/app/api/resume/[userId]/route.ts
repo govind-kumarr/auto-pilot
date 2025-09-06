@@ -3,9 +3,9 @@ import { generateResumeUrl } from "@/utils/aws_functions";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { userId: string } }
+  { params }: { params: Promise<{ userId: string }> }
 ) {
-  const { userId } = params;
+  const { userId } = await params;
 
   if (!userId) {
     return NextResponse.json({ message: "User ID missing" }, { status: 400 });
