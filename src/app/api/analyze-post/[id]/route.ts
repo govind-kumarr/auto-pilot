@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAndDecodeToken } from "../../../../../lib/auth";
+import { getUserFromRequest, verifyAndDecodeToken } from "../../../../../lib/auth";
 import PostModel from "../../../../../models/post_model";
 import RoleModel from "../../../../../models/role_model";
 import dbConnect from "../../../../../lib/db";
@@ -9,13 +9,10 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    // const token = request.cookies.get("auto_pilot_session")?.value;
-
-    // const decoded = token ? verifyAndDecodeToken(token) : null;
-    // if (!decoded)
-    //   return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-
-    // const userId = decoded.userId;
+    const userId = getUserFromRequest(request);
+    if (!userId) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
     const { id } = await params;
     await dbConnect();
     const exist = await PostModel.findById(id);

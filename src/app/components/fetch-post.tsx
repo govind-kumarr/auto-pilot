@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function FetchPost() {
-  const [postUrl, setPostUrl] = useState(""); //https://www.linkedin.com/posts/sweeti-kumari-6a086b20b_nickelfoxtechnologies-wearehiring-techjobs-activity-7367147085864849410-91Vt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD37G6wBIqAMEKKZuiBtzbXdU24F8cLjIdk
+  const [postUrl, setPostUrl] = useState("");
   const router = useRouter();
 
   const { mutate, isPending } = useMutation({
@@ -48,21 +48,21 @@ export default function FetchPost() {
   }
 
   return (
-    <div className="w-full flex justify-center items-center py-12 px-4">
+    <div className="min-h-screen flex items-start justify-center pt-16 px-4 bg-background font-sans">
       <div className="w-full max-w-2xl">
-        <div className="flex items-center rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden transition hover:shadow-xl">
+        <div className="flex items-center rounded-2xl border border-border bg-card shadow-md overflow-hidden transition hover:shadow-lg">
           <input
             type="url"
             value={postUrl}
             onChange={(e) => setPostUrl(e.target.value)}
             placeholder="Paste LinkedIn post URL..."
-            className="flex-1 px-5 py-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-5 py-4 text-foreground placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             type="button"
             onClick={handleSubmit}
             disabled={isPending || !isValidLinkedInPostUrl(postUrl)}
-            className="bg-blue-600 hover:bg-blue-700 transition-colors text-white px-6 py-4 flex items-center justify-center disabled:opacity-50 cursor-pointer"
+            className="bg-primary hover:bg-primary-hover transition-colors text-white px-6 py-4 flex items-center justify-center disabled:opacity-50 cursor-pointer"
           >
             {isPending ? (
               <Loader2 className="w-5 h-5 animate-spin" />

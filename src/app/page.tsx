@@ -1,15 +1,14 @@
 "use client";
-import { useState } from "react";
-import FetchPost from "./components/fetch-post";
-import ListRoles from "./components/list-roles";
+import Providers from "./providers";
+import Home from "./components/home";
+import { UserProvider } from "./user-provider";
 
 export default function AutoPilot() {
-  const [step, setStep] = useState(1);
-
   return (
-    <div className="flex flex-col justify-center">
-      {step === 1 && <FetchPost />}
-      {step === 2 && <ListRoles />}
-    </div>
+    <Providers>
+      <UserProvider>
+        <Home />
+      </UserProvider>
+    </Providers>
   );
 }

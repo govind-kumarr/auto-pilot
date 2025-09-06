@@ -4,19 +4,16 @@ import { analyzePost } from "./post_analyzer";
 // import { testSummary } from "@/app/prompts/auto_pilot_prompts";
 import PostModel from "../../../../models/post_model";
 import RoleModel from "../../../../models/role_model";
-import { verifyAndDecodeToken } from "../../../../lib/auth";
+import { getUserFromRequest, verifyAndDecodeToken } from "../../../../lib/auth";
 import dbConnect from "../../../../lib/db";
 
 export async function POST(request: NextRequest) {
   try {
-    // Extracting token and decoding it
-    // const token = request.cookies.get("auto_pilot_session")?.value;
-
-    // const decoded = token ? verifyAndDecodeToken(token) : null;
-    // if (!decoded)
-    //   return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-
-    // const userId = decoded.userId;
+    const userId = getUserFromRequest(request);
+    if (!userId) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
+    
     await dbConnect();
     const { url } = await request.json();
     let post = await PostModel.findOne({ url });

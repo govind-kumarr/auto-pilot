@@ -1,8 +1,45 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Colors */
+  --color-background: #ffffff; /* light background */
+  --color-foreground: #111827; /* dark text */
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-primary-hover: #2563eb; /* blue-600 */
+  --color-secondary: #6366f1; /* indigo-500 */
+  --color-accent: #10b981; /* emerald-500 */
+  --color-muted: #6b7280; /* gray-500 */
+  --color-border: #d1d5db; /* gray-300 */
+  --color-success: #22c55e; /* green-500 */
+  --color-error: #ef4444; /* red-500 */
+  --color-warning: #f59e0b; /* amber-500 */
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Spacing / Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+
+  /* Buttons */
+  --btn-padding: 0.5rem 1rem;
+  --btn-border-radius: var(--radius-md);
+  --btn-font-weight: 500;
+
+  /* Backgrounds for components */
+  --bg-card: #f9fafb;
+  --bg-hover: #f3f4f6;
+  --bg-muted: #f4f4f5;
+
+  /* Other */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.3s ease-in-out;
 }

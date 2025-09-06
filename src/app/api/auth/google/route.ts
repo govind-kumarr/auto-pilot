@@ -65,7 +65,7 @@ export async function GET(request: Request) {
     res.headers.set("Set-Cookie", cookie);
     return res;
   } catch (error) {
-    console.error(error)
+    console.error(error);
     const url = new URL("/login", request.url);
     url.searchParams.set("error", "Error Authenticating User");
     return NextResponse.redirect(url);
